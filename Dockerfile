@@ -10,10 +10,10 @@ ENV export LANGUAGE=en_US.UTF-8
 RUN apt-get install -y wget curl build-essential git
 RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update
-RUN apt-get install -y nodejs esl-erlang=1:20.3 gettext-base unzip
-RUN wget -q https://github.com/elixir-lang/elixir/releases/download/v1.6.4/Precompiled.zip
+RUN apt-get install -y nodejs esl-erlang=1:21.3.3-1 gettext-base unzip
+RUN wget -q https://github.com/elixir-lang/elixir/releases/download/v1.8.1/Precompiled.zip
 RUN unzip Precompiled.zip -d elixir
 ENV PATH="/elixir/bin:${PATH}"
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/chrome.list
