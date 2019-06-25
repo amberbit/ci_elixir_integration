@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
-ENV CHROMEDRIVER_VERSION=76.0.3809.25
+ENV CHROMEDRIVER_VERSION=75.0.3770.90
+ENV PATH="/elixir/bin:${PATH}"
 
 RUN apt-get update; apt-get install -y apt-transport-https;
 RUN apt-get install -y --no-install-recommends locales
@@ -17,7 +18,6 @@ RUN apt-get update
 RUN apt-get install -y nodejs esl-erlang=1:22.0.3-1 gettext-base unzip
 RUN wget -q https://github.com/elixir-lang/elixir/releases/download/v1.9.0/Precompiled.zip
 RUN unzip Precompiled.zip -d elixir
-ENV PATH="/elixir/bin:${PATH}"
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/chrome.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 RUN apt-get update && apt-get install -y google-chrome-stable
