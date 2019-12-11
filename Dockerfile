@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV CHROMEDRIVER_VERSION=75.0.3770.90
+ENV CHROMEDRIVER_VERSION=79.0.3945.36
 ENV PATH="/elixir/bin:${PATH}"
 
 RUN apt-get update; apt-get install -y apt-transport-https;
@@ -13,10 +13,10 @@ ENV export LANGUAGE=en_US.UTF-8
 RUN apt-get install -y wget curl build-essential git
 RUN wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
 RUN dpkg -i erlang-solutions_1.0_all.deb
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
 RUN apt-get update
-RUN apt-get install -y nodejs esl-erlang=1:22.0.3-1 gettext-base unzip
-RUN wget -q https://github.com/elixir-lang/elixir/releases/download/v1.9.0/Precompiled.zip
+RUN apt-get install -y nodejs esl-erlang=1:22.2-1 gettext-base unzip
+RUN wget -q https://github.com/elixir-lang/elixir/releases/download/v1.9.4/Precompiled.zip
 RUN unzip Precompiled.zip -d elixir
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/chrome.list
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
